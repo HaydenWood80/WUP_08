@@ -34,6 +34,13 @@ abline(simp)
 summary.lm(simp)
 ```
 
+The best simple model, so far is Length-AGE is best
+```{r}
+set.seed(123)
+group <- c(rep("A", 50), rep("B", 50))
+value <- c(rnorm(50, mean = 10, sd = 2), rnorm(50, mean = 12, sd = 2))
+data <- data.frame(Group = group, Value = value)
 
+```
  
 

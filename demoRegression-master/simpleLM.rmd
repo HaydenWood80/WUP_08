@@ -4,11 +4,12 @@ author: "Hayden Wood"
 date: "Spring 2024"
 output: html_document
 
+---
 
-## Compare all models      
+## Compare all models   
+
 predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better.
 
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

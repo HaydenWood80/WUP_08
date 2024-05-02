@@ -29,19 +29,71 @@ bears$MONTH<- as.factor(bears$MONTH)
 ## Model LENGTH ~ NECK  this is an example  
 
 ```{r}
-simp <- lm(LENGTH~NECK,data=bears)
+simpNECK <- lm(LENGTH~NECK,data=bears)
 plot(LENGTH~NECK,data=bears)
-abline(simp)
-summary.lm(simp)
+abline(simpNECK)
 ```
 
-The best simple model, so far is Length-AGE is best
 ```{r}
-set.seed(123)
-group <- c(rep("A", 50), rep("B", 50))
-value <- c(rnorm(50, mean = 10, sd = 2), rnorm(50, mean = 12, sd = 2))
-data <- data.frame(Group = group, Value = value)
-
+summary.lm(simpNECK)
 ```
- 
 
+```{r}
+simpAGE <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(simpAGE)
+```
+
+```{r}
+summary.lm(simpAGE)
+```
+
+```{r}
+simpHEADLEN <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(simpHEADLEN)
+```
+```{r}
+summary.lm(simpHEADLEN)
+```
+```{r}
+simpHEADWTH <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(simpHEADWTH)
+```
+```{r}
+summary.lm(simpHEADWTH)
+```
+
+
+```{r}
+simpCHEST <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(simpCHEST)
+```
+
+```{r}
+summary.lm(simpCHEST)
+```
+
+```{r}
+simpWEIGHT <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(simpWEIGHT)
+```
+
+```{r}
+summary.lm(simpWEIGHT)
+```
+
+Best to worst based on adjusted-rsquared
+HHEADLEN 0.8434
+CHEST 0.7869
+NECK 0.7476
+WEIGHT 0.7423
+HEADWTH 0.5321
+AGE 0.5073
+
+## Compare all models that predict LENGTH other than NECCK. THEN order them from worst to best by its value of Adjusted-Rsquared, or by RSE where smaller is better
+
+based on the adjusted Rsquared, this would ditermine that HEADLEN is the best variable ot predict LENGTH.
